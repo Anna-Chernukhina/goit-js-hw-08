@@ -1,13 +1,12 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 import { galleryItems } from './gallery-items';
 
-const galleryRef = document.querySelector('.gallery');
-console.log("galleryRef:", galleryRef);
+const imagesList = document.querySelector('.gallery');
+console.log("imagesList:", imagesList);
 
-const markUpGallery = galleryItems
-  .map(
+const imagesMarkup = galleryItems.map(
     ({ preview, original, description }) => `
     <li class="gallery__item">
   <a class="gallery__link" href="${original}">
@@ -20,12 +19,11 @@ const markUpGallery = galleryItems
   </a>
 </li>
     `
-  )
-    .join('');
+  ).join('');
   
-console.log(markUpGallery);
+// console.log(imagesMarkup);
 
-galleryRef.insertAdjacentHTML('afterbegin', markUpGallery);
+imagesList.insertAdjacentHTML('afterbegin', imagesMarkup);
 
 new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
